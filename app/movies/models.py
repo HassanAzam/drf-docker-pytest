@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
+
 class CustomUser(AbstractUser):
     pass
 
@@ -16,5 +17,3 @@ class Movie(models.Model):
 
     def __str__(self):
         return f"{self.title}"
-
-
