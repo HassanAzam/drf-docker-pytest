@@ -5,9 +5,11 @@ from .models import Movie, CustomUser
 
 # Register your models here.
 
+
 @admin.register(CustomUser)
 class UserAdmin(DefaultUserAdmin):
     pass
+
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
@@ -18,4 +20,5 @@ class MovieAdmin(admin.ModelAdmin):
     readonly_fields = (
         "created_date", "updated_date",
     )
+
 
