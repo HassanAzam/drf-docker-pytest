@@ -1,3 +1,7 @@
 app/env/
 app/htmlcov/
 .coverage
+env
+env/
+app/venv
+venv/
