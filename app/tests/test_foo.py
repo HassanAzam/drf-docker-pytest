@@ -1,5 +1,6 @@
-from django.urls import reverse
 import json
+
+from django.urls import reverse
 
 
 def test_hello_world():
