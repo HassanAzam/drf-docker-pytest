@@ -6,10 +6,25 @@ from rest_framework.views import APIView
 from .models import Movie
 from .serializers import MovieSerializer
 
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+
+
 # Create your views here.
 
 
 class MovieList(APIView):
+
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                "title": openapi.Schema(type=openapi.TYPE_STRING),
+                "genre": openapi.Schema(type=openapi.TYPE_STRING),
+                "year": openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        )
+    )
     def post(self, request, format=None):
         serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
@@ -40,6 +55,16 @@ class MovieDetail(APIView):
         movie.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                "title": openapi.Schema(type=openapi.TYPE_STRING),
+                "genre": openapi.Schema(type=openapi.TYPE_STRING),
+                "year": openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        )
+    )
     def put(self, request, pk, format=None):
         movie = self.get_object(pk)
         serializer = MovieSerializer(movie, data=request.data)
