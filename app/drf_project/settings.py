@@ -44,7 +44,6 @@ if not DEBUG:
     SECURE_REFERRER_POLICY = "same-origin"
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
