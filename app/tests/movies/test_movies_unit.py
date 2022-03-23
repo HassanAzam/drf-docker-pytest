@@ -71,7 +71,6 @@ def test_get_all_movies(client, monkeypatch):
     assert resp.data[1]["title"] == payload[1]["title"]
 
 
-
 def test_remove_movie(client, monkeypatch):
     def mock_get_object(self, pk):
         class Movie:
@@ -94,7 +93,6 @@ def test_remove_movie_incorrect_id(client, monkeypatch):
 
     resp = client.delete("/api/movies/99/")
     assert resp.status_code == 404
-
 
 
 def test_update_movie(client, monkeypatch):
