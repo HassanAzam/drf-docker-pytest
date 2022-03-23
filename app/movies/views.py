@@ -1,4 +1,6 @@
 from django.http import Http404
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -6,15 +8,10 @@ from rest_framework.views import APIView
 from .models import Movie
 from .serializers import MovieSerializer
 
-from drf_yasg import openapi
-from drf_yasg.utils import swagger_auto_schema
-
-
 # Create your views here.
 
 
 class MovieList(APIView):
-
     @swagger_auto_schema(
         request_body=openapi.Schema(
             type=openapi.TYPE_OBJECT,
